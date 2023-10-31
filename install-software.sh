@@ -47,7 +47,7 @@ sudo make install
 cd /home/ubuntu
 git clone https://github.com/yhilpisch/tpqoa
 cd tpqoa
-sudo python setup.py install
+sudo python3 setup.py install
 
 
 # PYTHON LIBRARIES
