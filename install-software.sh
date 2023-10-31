@@ -9,7 +9,7 @@ cd /home/ubuntu
 sudo apt -y install git binutils
 git clone https://github.com/aws/efs-utils
 cd /home/ubuntu/efs-utils
-/home/ubuntu//build-deb.sh
+/home/ubuntu/build-deb.sh
 sudo apt-get -y install ./build/amazon-efs-utils*deb
 echo "fs-020ae87de07d938d0:/ /home/ubuntu/efs efs _netdev,tls 0 0" | sudo tee -a /etc/fstab
 cd /home/ubuntu
