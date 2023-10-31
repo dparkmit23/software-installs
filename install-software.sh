@@ -22,7 +22,7 @@ sudo mount -a
 cd /home/ubuntu
 rm -rf /home/ubuntu/.ssh
 ln -s /home/ubuntu/efs/.ssh /home/ubuntu/.ssh
-ls -s /home/ubuntu/efs/.emacs.d /home/ubuntu/.emacs.d
+ln -s /home/ubuntu/efs/.emacs.d /home/ubuntu/.emacs.d
 
 # SOFTWARE
 cd /home/ubuntu
