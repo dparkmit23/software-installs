@@ -20,9 +20,10 @@ mkdir /home/ubuntu/efs
 sudo mount -a
 
 cd /home/ubuntu
-rm -rf .ssh
+rm -rf /home/ubuntu/.ssh
 ln -s /home/ubuntu/efs/.ssh /home/ubuntu/.ssh
 ls -s /home/ubuntu/efs/.emacs.d /home/ubuntu/.emacs.d
 
 # SOFTWARE
+cd /home/ubuntu
 sudo apt -y install emacs
