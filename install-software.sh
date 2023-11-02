@@ -57,5 +57,5 @@ pip install ccxt ta-lib
 pip install numpy pandas matplotlib seaborn
 pip install scikit-learn xgboost tensorflow torch prophet
 pip install boto3
-
+pip install SQLAlchemy
 
