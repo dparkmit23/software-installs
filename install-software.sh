@@ -10,7 +10,7 @@ sudo apt -y upgrade
 
 # SOFTWARE
 cd /home/ubuntu
-sudo apt -y install emacs gcc make python3-pip
+sudo apt -y install emacs gcc make python3-pip mysql-client
 
 
 # EFS
