@@ -10,7 +10,7 @@ sudo apt -y upgrade
 
 # SOFTWARE
 cd /home/ubuntu
-sudo apt -y install emacs gcc make python3-pip mysql-client
+sudo apt -y install emacs gcc make python3-pip mysql-client pkg-config libmysqlclient-dev
 
 
 # EFS
@@ -59,3 +59,4 @@ pip install scikit-learn xgboost tensorflow torch prophet
 pip install boto3
 pip install SQLAlchemy
 pip install mysql-connector-python
+pip install mysqlclient
