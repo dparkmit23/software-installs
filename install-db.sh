@@ -36,7 +36,8 @@ else
     sudo apt install mariadb-server
     sudo systemctl stop mariadb
 
-    sudo mv /var/lib/mysql /home/ubuntu/efs/mysql
+    sudo cp -R /var/lib/mysql /home/ubuntu/efs/mysql
+    sudo mv /var/lib/mysql /var/lib/mysql.bak
     sudo ln -s /home/ubuntu/efs/mysql /var/lib/mysql
     sudo chown -R mysql:mysql /home/ubuntu/efs/mysql
 
