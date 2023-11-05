@@ -4,8 +4,8 @@
 set -e
 
 db_dir="/home/ubuntu/efs/mysql"
-efs_id = "fs-08489c99cb1a0c33a"
-efs_entry ="$efs_id:/ /home/ubuntu/efs efs _netdev,tls 0 0" 
+efs_id="fs-08489c99cb1a0c33a"
+efs_entry="$efs_id:/ /home/ubuntu/efs efs _netdev,tls 0 0" 
 
 # INITIALIZE APT
 sudo apt update
