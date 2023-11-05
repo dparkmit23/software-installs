@@ -26,7 +26,6 @@ else
     cd /home/ubuntu
     mkdir /home/ubuntu/efs
     sudo mount -a
-    mkdir -p $db_dir
 fi
 
 # DB 
@@ -37,14 +36,9 @@ else
     sudo apt install mariadb-server
     sudo systemctl stop mariadb
 
-    sudo rsync -av /var/lib/mysql $db_dir
-
-    sudo mv /var/lib/mysql /var/lib/mysql.bak
-
-    echo "[mysqld]" | sudo tee -a /etc/mysql/mariadb.conf.d/50-server.cnf
-    echo "datadir = $db_dir" | sudo tee -a /etc/mysql/mariadb.conf.d/50-server.cnf
-
-    sudo chown -R mysql:mysql $db_dir
+    sudo mv /var/lib/mysql /home/ubuntu/efs/mysql
+    sudo ln -s /home/ubuntu/efs/mysql /var/lib/mysql
+    sudo chown -R mysql:mysql /home/ubuntu/efs/mysql
 
     sudo systemctl start mariadb
     sudo systemctl status mariadb
