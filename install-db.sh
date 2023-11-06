@@ -49,6 +49,7 @@ else
     "
 
     # Modify the MariaDB configuration file
+    sudo sed -i 's|^#datadir\s*=.*|datadir = /db/mysql|' /etc/mysql/mariadb.conf.d/50-server.cnf
     sudo sed -i 's/^#max_connections\s*= 100/max_connections = 600/' /etc/mysql/mariadb.conf.d/50-server.cnf
     sudo sed -i 's/^bind-address\s*= 127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 
@@ -94,9 +95,6 @@ else
 
     # Move /var/lib/mysql to /db/mysql
     sudo mv /var/lib/mysql /db/mysql
-
-    # Modify the MariaDB configuration file
-    sudo sed -i 's|^datadir\s*=.*|datadir = /db/mysql|' /etc/mysql/mariadb.conf.d/50-server.cnf
 
     # Start MariaDB
     sudo systemctl start mariadb
