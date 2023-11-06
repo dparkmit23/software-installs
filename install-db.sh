@@ -15,7 +15,6 @@ else
     echo "Installing MariaDB service."
     sudo apt install mariadb-server
     sudo systemctl enable mariadb
-    sudo  mysql_secure_installation
 
     # Log into MariaDB as the root user
     sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf -e "
