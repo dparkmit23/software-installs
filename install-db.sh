@@ -67,12 +67,29 @@ else
     # Mount all filesystems mentioned in fstab
     sudo mount -a
 
+    # Get the current date
+    date=$(date +%Y-%m-%d)
+
+    # Initialize the counter
+    counter=0
+
+    # Generate the backup directory name
+    backup_dir="/db/mysql.bak.$date.$counter"
+
+    # Increment the counter until we find a backup directory that doesn't exist
+    while [ -d "$backup_dir" ]; do
+        counter=$((counter+1))
+        backup_dir="/db/mysql.bak.$date.$counter"
+    done
+
     # Check if the mysql directory exists
     if [ -d "/db/mysql" ]; then
-        # Delete the directory
-        sudo rm -r /db/mysql
+
+        # Move the directory
+        sudo mv /db/mysql "$backup_dir"
+        echo "Moved /db/mysql to $backup_dir"
     else
-        echo "Didn't delete /db/mysql becausw it was not found."
+        echo "Didn't move /db/mysql because it was not found."
     fi
 
     # Move /var/lib/mysql to /db/mysql
