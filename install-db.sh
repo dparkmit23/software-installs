@@ -18,7 +18,7 @@ else
     sudo  mysql_secure_installation
 
     # Log into MariaDB as the root user
-    mysql -u root -e "
+    sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf -e "
         # Change the root password
         SET PASSWORD FOR 'root'@'localhost' = PASSWORD('ZACEciU2fU');
 
