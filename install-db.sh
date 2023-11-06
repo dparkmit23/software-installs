@@ -55,4 +55,33 @@ else
     # Restart the MariaDB
     sudo systemctl restart mariadb
 
+    # Stop MariaDB
+    sudo systemctl stop mariadb
+
+    # Create the /db directory
+    sudo mkdir -p /db
+
+    # Add the line to /etc/fstab
+    echo "UUID=26e0ffbb-3a06-46d8-968a-2ca9b2aba341  /db  xfs  defaults,nofail  0  2" | sudo tee -a /etc/fstab
+
+    # Mount all filesystems mentioned in fstab
+    sudo mount -a
+
+    # Check if the mysql directory exists
+    if [ -d "/db/mysql" ]; then
+        # Delete the directory
+        sudo rm -r /db/mysql
+    else
+        echo "Didn't delete /db/mysql becausw it was not found."
+    fi
+
+    # Move /var/lib/mysql to /db/mysql
+    sudo mv /var/lib/mysql /db/mysql
+
+    # Modify the MariaDB configuration file
+    sudo sed -i 's|^datadir\s*=.*|datadir = /db/mysql|' /etc/mysql/mariadb.conf.d/50-server.cnf
+
+    # Start MariaDB
+    sudo systemctl start mariadb
+
 fi
