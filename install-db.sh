@@ -48,16 +48,13 @@ else
         FLUSH PRIVILEGES;
     "
 
+    # Stop MariaDB
+    sudo systemctl stop mariadb
+
     # Modify the MariaDB configuration file
     sudo sed -i 's|^#datadir\s*=.*|datadir = /db/mysql|' /etc/mysql/mariadb.conf.d/50-server.cnf
     sudo sed -i 's/^#max_connections\s*= 100/max_connections = 600/' /etc/mysql/mariadb.conf.d/50-server.cnf
     sudo sed -i 's/^bind-address\s*= 127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
-
-    # Restart the MariaDB
-    sudo systemctl restart mariadb
-
-    # Stop MariaDB
-    sudo systemctl stop mariadb
 
     # Create the /db directory
     sudo mkdir -p /db
